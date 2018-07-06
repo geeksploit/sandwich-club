@@ -9,12 +9,21 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.udacity.sandwichclub.utils.JsonContractSandwich.*;
+
 public class JsonUtils {
 
     public static Sandwich parseSandwichJson(String json) {
         try {
             JSONObject j = new JSONObject(json);
-            return new Sandwich();
+            return new Sandwich(
+                    j.getJSONObject(NAME).getString(MAIN_NAME),
+                    jsonArrayToList(j.getJSONObject(NAME).getJSONArray(ALSO_KNOWN_AS)),
+                    j.getString(PLACE_OF_ORIGIN),
+                    j.getString(DESCRIPTION),
+                    j.getString(IMAGE),
+                    jsonArrayToList(j.getJSONArray(INGREDIENTS))
+            );
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
