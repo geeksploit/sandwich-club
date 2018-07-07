@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
@@ -69,6 +70,11 @@ public class DetailActivity extends AppCompatActivity {
             return list.toString()
                     .replace("[", "")
                     .replace("]", ".");
+    }
+
+    private void setText(int id, String text) {
+        TextView textView = findViewById(id);
+        textView.setText(text);
     }
 
     private String sparse(String source) {
