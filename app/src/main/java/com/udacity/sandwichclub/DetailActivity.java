@@ -60,7 +60,10 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void populateUI(Sandwich sandwich) {
-
+        setText(R.id.origin_tv, sparse(sandwich.getPlaceOfOrigin()));
+        setText(R.id.also_known_tv, merge(sandwich.getAlsoKnownAs()));
+        setText(R.id.description_tv, sandwich.getDescription());
+        setText(R.id.ingredients_tv, merge(sandwich.getIngredients()));
     }
 
     private String merge(List<String> list) {
