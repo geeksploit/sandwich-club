@@ -10,6 +10,8 @@ import com.squareup.picasso.Picasso;
 import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
 
+import java.util.List;
+
 public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
@@ -58,5 +60,14 @@ public class DetailActivity extends AppCompatActivity {
 
     private void populateUI(Sandwich sandwich) {
 
+    }
+
+    private String merge(List<String> list) {
+        if (list.isEmpty())
+            return getString(R.string.detail_empty);
+        else
+            return list.toString()
+                    .replace("[", "")
+                    .replace("]", ".");
     }
 }
