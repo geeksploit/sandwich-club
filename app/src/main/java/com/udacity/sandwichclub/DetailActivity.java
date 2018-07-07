@@ -70,4 +70,8 @@ public class DetailActivity extends AppCompatActivity {
                     .replace("[", "")
                     .replace("]", ".");
     }
+
+    private String sparse(String source) {
+        return source.replace("", "  ").trim();
+    }
 }
